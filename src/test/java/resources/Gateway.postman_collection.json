@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "67e4e1fb-70db-44eb-aa92-fef89eb95109",
+		"name": "Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36143265"
+	},
+	"item": [
+		{
+			"name": "json api  - period",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"requestId\": \"b89577fe-8c37-4962-344329\",\r\n\"timestamp\": 1586335186721,\r\n\"client\": \"1234\",\r\n\"currency\":\"EUR\",\r\n\"period\": 500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/json_api/history",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"json_api",
+						"history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "json api - latest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"requestId\": \"b89577fe-8c37-4962-8asd909\",\r\n\"timestamp\": 1586335186721,\r\n\"client\": \"1234\",\r\n\"currency\": \"USD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/json_api/current",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"json_api",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xml api - history",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<command id=\"999923456\">\r\n<history consumer=\"13617162\" currency=\"EUR\" period=\"600\"/>\r\n</command>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/xml_api/command",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"xml_api",
+						"command"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "xml api - latest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "<command id=\"35455555555\">\r\n<get consumer=\"13617162\">\r\n<currency>EUR</currency>\r\n</get>\r\n</command>",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/xml_api/command",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"xml_api",
+						"command"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
