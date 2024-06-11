@@ -1,5 +1,6 @@
 package com.task.currency.gateway.dto.xml;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import com.task.currency.gateway.dto.CurrencyRateDto;
@@ -17,6 +18,7 @@ import java.util.List;
 @JacksonXmlRootElement(localName = "history")
 public class CurrencyHistoryDto {
 
-    @JacksonXmlProperty(localName = "currencies")
+    @JacksonXmlProperty(localName = "currency")
+    @JacksonXmlElementWrapper(useWrapping = false)
     private List<CurrencyRateDto> currencyRates;
 }
