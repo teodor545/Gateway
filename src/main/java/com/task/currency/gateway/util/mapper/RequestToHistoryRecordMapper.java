@@ -3,6 +3,7 @@ package com.task.currency.gateway.util.mapper;
 import com.task.currency.gateway.dto.xml.CurrencyCommandDto;
 import com.task.currency.gateway.dto.RateRequestDto;
 import com.task.currency.gateway.entity.RequestHistory;
+import com.task.currency.gateway.util.Constants;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -15,7 +16,7 @@ public class RequestToHistoryRecordMapper {
         requestHistory.setRequestId(rateRequestDto.getRequestId());
         requestHistory.setCurrency(rateRequestDto.getCurrency());
         requestHistory.setServiceName(serviceName);
-        requestHistory.setTimestamp(LocalDateTime.ofInstant(Instant.ofEpochSecond(rateRequestDto.getTimestamp()), ZoneId.systemDefault()));
+        requestHistory.setTimestamp(LocalDateTime.ofInstant(Instant.ofEpochSecond(rateRequestDto.getTimestamp()), Constants.APP_TIME_ZONE));
         requestHistory.setClientId(rateRequestDto.getClient());
         return requestHistory;
     }

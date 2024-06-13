@@ -3,6 +3,7 @@ package com.task.currency.gateway.util.mapper;
 import com.task.currency.gateway.dto.CurrencyRateDto;
 import com.task.currency.gateway.entity.BaseRequest;
 import com.task.currency.gateway.entity.ExchangeRate;
+import com.task.currency.gateway.util.Constants;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -20,7 +21,7 @@ public class CurrencyObjectMapper {
         BaseRequest baseRequest = new BaseRequest();
         baseRequest.setBase(currencyRateDto.getBase());
         baseRequest.setRateDate(currencyRateDto.getDate());
-        baseRequest.setTimestamp(LocalDateTime.ofInstant(Instant.ofEpochSecond(currencyRateDto.getTimestamp()),ZoneId.of(DEFAULT_TIME_ZONE)));
+        baseRequest.setTimestamp(LocalDateTime.ofInstant(Instant.ofEpochSecond(currencyRateDto.getTimestamp()), Constants.APP_TIME_ZONE));
 
         List<ExchangeRate> exchangeRates = new ArrayList<>();
         for (Map.Entry<String, Double> rate : currencyRateDto.getRates().entrySet()) {
@@ -40,7 +41,7 @@ public class CurrencyObjectMapper {
         CurrencyRateDto currencyRateDto = new CurrencyRateDto();
         currencyRateDto.setBase(baseRequest.getBase());
         currencyRateDto.setDate(baseRequest.getRateDate());
-        currencyRateDto.setTimestamp(baseRequest.getTimestamp().atZone(ZoneId.of(DEFAULT_TIME_ZONE)).toEpochSecond());
+        currencyRateDto.setTimestamp(baseRequest.getTimestamp().atZone(Constants.APP_TIME_ZONE).toEpochSecond());
 
         Map<String,Double> rates = new HashMap<>();
         baseRequest.getExchangeRates().forEach(rate -> rates.put(rate.getCurrency(), rate.getRate()));

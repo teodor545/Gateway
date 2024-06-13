@@ -2,6 +2,7 @@ package com.task.currency.gateway.util.converter;
 
 import com.task.currency.gateway.dto.CurrencyRateDto;
 import com.task.currency.gateway.dto.RateRequestDto;
+import com.task.currency.gateway.exception.NoSuchCurrencyException;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -13,7 +14,7 @@ public class CurrencyBaseConverter {
 
         Double newBaseCurrency = originalRates.get(baseCurrency);
         if (newBaseCurrency == null) {
-            throw new IllegalArgumentException("No such currency type");
+            throw new NoSuchCurrencyException();
         }
 
         if (currencyRateDto.getBase().equals(baseCurrency)) {
