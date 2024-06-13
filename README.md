@@ -8,6 +8,6 @@ See application.properties for configurations used for them.
 See Gateway.postman_collection.json for endpoints.
 
 Technologies used:
-- JPA,Postgres,Kafka,Jackson
+- Spring boot,JPA,Postgres,Kafka,Jackson
 
-
+Requires data from fixer.io
